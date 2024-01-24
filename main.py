@@ -20,7 +20,7 @@ async def imagine(ctx, prompt, model):
         await ctx.send(f"Invalid model. Available models: {', '.join(available_models)}")
         return
     
-    api_url = f'http://ai.harmon.com.tr/imagine?token={os.getenv('TOKEN')}&prompt={prompt}&model={model}'
+    api_url = f'http://ai.harmon.com.tr/imagine?token=chirag&prompt={prompt}&model={model}'
     
     try:
         response = requests.get(api_url)
