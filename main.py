@@ -25,8 +25,13 @@ async def imagine(ctx, prompt, model):
     try:
         response = requests.get(api_url)
         result = response.json()
-        output = result.get('output', 'Error retrieving output.')
-        await ctx.send(output)
+        image_url = result.get('result')
+
+        # Create an embed with the image
+        embed = discord.Embed()
+        embed.set_image(url=image_url)
+
+        await ctx.send(embed=embed)
     except Exception as e:
         await ctx.send(f"Error: {e}")
 
